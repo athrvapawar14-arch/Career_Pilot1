@@ -17,7 +17,7 @@ class Student:
         print(f"Roll Number   : {self.roll_no}")
         print(f"Branch        : {self.Branch}")
         print(f"Year          : {self.year}")
-        print(f"Career Goal   : {self.career_goal}")
+        print(f"Career Goal   : {self.career_goal}") 
     
     def update_student(self, name=None, roll_no=None, Branch=None, year=None, career_goal=None):
         if name:
@@ -92,29 +92,150 @@ class StudentProfileManager:
 
 manager = StudentProfileManager()
 
-while True:
-    print("\n===== Student Profile Management System =====")
-    print("1. Create Student Profile")
-    print("2. View All Student Profiles")
-    print("3. Update Student Profile")
-    print("4. Delete Student Profile")
-    print("5. Exit")
 
-    choice = input("Enter your choice (1-5): ").strip()
+
+class Task:
+    def __init__(self, title, description, due_date):
+        self.title = title
+        self.description = description
+        self.due_date = due_date
+        self.completed = False
+
+    def display_task(self):
+        print("\n===== Task Details =====")
+        print(f"Title       : {self.title}")
+        print(f"Description : {self.description}")
+        print(f"Due Date    : {self.due_date}")
+        print(f"Status      : {'Completed' if self.completed else 'Pending'}")
+    
+    def mark_as_completed(self):
+        self.completed = True
+        print(f"\nTask '{self.title}' marked as completed.\n")
+
+class TaskManager:
+    def __init__(self):
+        self.tasks = []
+
+    def create_task(self):
+        print("\n===== Create New Task =====")
+        title = input("Enter Task Title       : ").strip()
+        description = input("Enter Task Description : ").strip()
+        due_date = input("Enter Task Due Date    : ").strip()
+
+        if title == "":
+            print("\nTask title cannot be empty!")
+            return
+
+        task = Task(title, description, due_date)
+        self.tasks.append(task)
+
+        print("\nTask Created Successfully!\n")
+
+    def view_tasks(self):
+        if not self.tasks:
+            print("\nNo tasks found.\n")
+            return
+
+        print("\n===== All Tasks =====")
+        for index, task in enumerate(self.tasks, start=1):
+            print(f"\nTask {index}")
+            task.display_task()
+
+    def mark_task_completed(self):
+        title = input("Enter Title of Task to Mark as Completed: ").strip()
+        for task in self.tasks:
+            if task.title == title:
+                task.mark_as_completed()
+                return
+        print(f"\nNo task found with Title: {title}\n")
+
+task_manager = TaskManager()
+
+
+
+
+def StudentManager():
+    
+    while True:
+
+        print("\n===== Student Profile Management System =====")
+        print("1. Create Student Profile")
+        print("2. View All Student Profiles")
+        print("3. Update Student Profile")
+        print("4. Delete Student Profile")
+        print("5. Exit")
+
+        choice = input("Enter your choice (1-5): ").strip()
+
+        if choice == '1':
+            manager.create_profile()
+        elif choice == '2':
+            manager.view_profiles()
+        elif choice == '3':
+            manager.update_profile()
+        elif choice == '4':
+            manager.delete_profile()
+        elif choice == '5':
+            print("\nThank you for using Career-Pilot\n")
+            break
+        else:
+            print("\nInvalid choice! Please enter a number between 1 and 5.\n")
+
+
+
+
+
+
+def Taskmanager():
+            
+        while True:
+            print("\n===== Task Management System =====")
+            print("1. Create New Task")
+            print("2. View All Tasks")
+            print("3. Mark Task as Completed")
+            print("4. Exit")
+
+            choice = input("Enter your choice (1-4): ").strip()
+
+            if choice == '1':
+                task_manager.create_task()
+            elif choice == '2':
+                task_manager.view_tasks()
+            elif choice == '3':
+                task_manager.mark_task_completed()
+            elif choice == '4':
+                print("\nThank you for using Career-Pilot\n")
+                break
+            else:
+                print("\nInvalid choice! Please enter a number between 1 and 4.\n")
+
+
+
+
+
+while True:
+
+    print("===== Welcome to Career Pilot =====")
+
+    print("Here are the options: ")
+    print("1. Student Profile Management System")
+    print("2. Task Management System")
+    print("3. Exit")
+
+    choice = input("Enter your choice (1-3): ").strip()
 
     if choice == '1':
-        manager.create_profile()
+        
+        StudentManager()
+
     elif choice == '2':
-        manager.view_profiles()
+        
+        Taskmanager()
+
     elif choice == '3':
-        manager.update_profile()
-    elif choice == '4':
-        manager.delete_profile()
-    elif choice == '5':
         print("\nThank you for using Career-Pilot\n")
         break
+
     else:
-        print("\nInvalid choice! Please enter a number between 1 and 5.\n")
-
-
+        print("\nInvalid choice! Please enter a number between 1 and 3.\n")
 
