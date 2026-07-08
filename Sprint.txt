@@ -1,0 +1,69 @@
+Sprint 0
+Project Planning
+        │
+        ▼
+Sprint 1
+Student Profile
+        │
+        ▼
+Sprint 2
+Task Manager
+        │
+        ▼
+Sprint 3
+Goal Manager
+        │
+        ▼
+Sprint 4
+Coding Practice Tracker
+        │
+        ▼
+Sprint 5
+Certification Tracker
+        │
+        ▼
+Sprint 6
+Placement Tracker
+        │
+        ▼
+Sprint 7
+Dashboard
+
+
+
+
+
+User Stories:
+# User Stories
+
+------------------------------------------------
+
+As a Student,
+
+I want to add my daily tasks,
+
+so that I never miss important work.
+
+------------------------------------------------
+
+As a Student,
+
+I want to record coding practice,
+
+so that I can monitor my consistency.
+
+------------------------------------------------
+
+As a Student,
+
+I want to track certifications,
+
+so that I know what I have completed.
+
+------------------------------------------------
+
+As a Student,
+
+I want to monitor placement applications,
+
+so that I never miss interview updates.
