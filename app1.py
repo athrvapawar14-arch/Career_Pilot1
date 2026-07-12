@@ -90,6 +90,27 @@ class StudentProfileManager:
                 return
         print(f"\nNo student found with Roll Number: {roll_no}\n")
 
+
+    def longest_career_goal(self):
+        # DSA concept : linear search
+
+        print("== Student With longest Career Goal ==")
+
+        if len(self.students) == 0 :
+            print(" No student profiles found")
+            return
+        
+        longest_student = self.students[0]
+        for student in self.students:
+            if len(student.career_goal) > len(longest_student.career_goal):
+                longest_student = student
+
+        print("Longest career goal belong to : ")
+        longest_student.display_student()
+
+
+
+
 manager = StudentProfileManager()
 
 
@@ -112,6 +133,7 @@ class Task:
         self.completed = True
         print(f"\nTask '{self.title}' marked as completed.\n")
 
+    
 class TaskManager:
     def __init__(self):
         self.tasks = []
@@ -149,6 +171,9 @@ class TaskManager:
                 return
         print(f"\nNo task found with Title: {title}\n")
 
+
+
+
 task_manager = TaskManager()
 
 
@@ -163,7 +188,8 @@ def StudentManager():
         print("2. View All Student Profiles")
         print("3. Update Student Profile")
         print("4. Delete Student Profile")
-        print("5. Exit")
+        print("5. The profile with longest career goal.")
+        print("6. Exit")
 
         choice = input("Enter your choice (1-5): ").strip()
 
@@ -176,6 +202,8 @@ def StudentManager():
         elif choice == '4':
             manager.delete_profile()
         elif choice == '5':
+            manager.longest_career_goal()
+        elif choice == '6':
             print("\nThank you for using Career-Pilot\n")
             break
         else:
